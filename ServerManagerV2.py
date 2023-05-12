@@ -1,65 +1,25 @@
 import os, sys
 import string
 import numpy as np
+import modules.server as svr
+import modules.servers as svrs
+import modules.ui as ui
+from decouple import config
 
-
-Starters = ("startServer.sh","StartServer.sh","ServerStart.sh","launch.sh","ServerStartLinux.sh") #if you want more add more
 lineArt = "-+========================+-"
+cwd = os.getcwd()
+serversDir = os.path.join(cwd,'servers')
 
-print(os.getcwd()) #this be where we be
+#print(os.getcwd()) #this be where we be
 
-folder = os.getcwd()
-folder = os.path.join(folder,'servers')
+if not os.path.exists(serversDir):
+    print("servers directory does not exist, creating...")
+    os.mkdir(serversDir)
+    print("server directory created, visit:"+ui.link("https://www.minecraft.net/en-us/download/server")+" to download the most recent server.jar to the sampleServer directory to get started")
 
-sub_folders = [name for name in os.listdir(folder) if os.path.isdir(os.path.join(folder, name))]
+print(os.path.join(cwd,'servers'))
+folder = os.path.join(cwd,'servers')
+
+sub_folders = [name for name in serversDir if os.path.isdir(os.path.join(serversDir, name))]
 
 print(sub_folders)
-
-def ScanServerFiles():
-
-
-    return
-
-def FindServerPorts():
-
-    return
-def CheckOnlineServers():
-
-    return
-
-def SendServerCommand():
-
-    return
-
-def ListArray():
-
-    return
-
-def TestFile():
-
-    return
-
-def FindStarter():
-
-    return
-def StartServers():
-
-    return
-def StopServers():
-
-    return
-
-def MainMenu():
-
-    return
-def StartServerMenu():
-
-    return
-
-def StopServerMenu():
-
-    return
-
-def ValidateUserInput():
-
-    return

@@ -1,2 +1,6 @@
 #Ignore any server files in server directory
 /servers/**
+
+#Ignore Python Junk
+*.pyc
+*.venv
