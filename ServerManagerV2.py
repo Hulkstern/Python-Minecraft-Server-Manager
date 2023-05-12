@@ -12,14 +12,15 @@ serversDir = os.path.join(cwd,'servers')
 
 #print(os.getcwd()) #this be where we be
 
+#Initial Setup
 if not os.path.exists(serversDir):
     print("servers directory does not exist, creating...")
     os.mkdir(serversDir)
-    print("server directory created, visit:"+ui.link("https://www.minecraft.net/en-us/download/server")+" to download the most recent server.jar to the sampleServer directory to get started")
+    print("server directory created, visit: "+ui.link("https://www.minecraft.net/en-us/download/server")+" to download the most recent server.jar to the sampleServer directory to get started")
 
 print(os.path.join(cwd,'servers'))
 folder = os.path.join(cwd,'servers')
 
-sub_folders = [name for name in serversDir if os.path.isdir(os.path.join(serversDir, name))]
+sub_folders = [name for name in os.listdir(serversDir) if os.path.isdir(os.path.join(serversDir, name))]
 
 print(sub_folders)
