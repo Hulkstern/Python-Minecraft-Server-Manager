@@ -2,8 +2,8 @@ import modules.core
 from decouple import config
 
 lineArt = config('lineArt')
-print(lineArt)
 
+#Functions
 def MainMenu():
 
     return

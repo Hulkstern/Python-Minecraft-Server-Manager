@@ -1,8 +1,8 @@
 import modules.core
 from decouple import config
 
+#Functions
 def ScanServerFiles():
-
 
     return
 

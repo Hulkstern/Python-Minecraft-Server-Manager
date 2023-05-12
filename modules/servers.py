@@ -4,6 +4,7 @@ from decouple import config
 
 serversDir = os.path.join(os.getcwd(),config('serversDirectory'))
 
+#Functions
 def checkOnline():
 
     return
