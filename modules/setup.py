@@ -2,7 +2,7 @@ import os
 import modules.ui as ui
 from decouple import config
 
-serversDir = os.path.join(os.getcwd(), config('serversDirectory'))
+serversDir = os.path.join(os.getcwd(), config('serversDirectory')) # type: ignore
 
 #Functions
 def init():

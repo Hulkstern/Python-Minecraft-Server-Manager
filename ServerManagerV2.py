@@ -8,7 +8,8 @@ import modules.core as core
 from decouple import config
 
 cwd = os.getcwd()
-serversDir = os.path.join(cwd, config('serversDirectory'))
+serversDir = os.path.join(cwd, config('serversDirectory')) # type: ignore
+loopMenuState = True
 
 #Initial Setup
 setup.init()
@@ -18,5 +19,14 @@ folder = os.path.join(cwd,'servers')
 
 sub_folders = [name for name in os.listdir(serversDir) if os.path.isdir(os.path.join(serversDir, name))]
 
+while loopMenuState:
+    userInput = ui.MainMenu()
+    match ui.ValidateUserInput(userInput, "mainMenu"):
+        case "1":
+            ui.StartServerMenu()
+        case "2":
+            ui.StopServerMenu()
+        case False:
+            ui.error(userInput,0)
 
 print(core.findStarter(svrs.listem()[0]))

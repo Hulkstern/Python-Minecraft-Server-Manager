@@ -3,7 +3,7 @@ import modules.core as core
 import modules.server as svr
 from decouple import config
 
-serversDir = os.path.join(os.getcwd(),config('serversDirectory'))
+serversDir = os.path.join(os.getcwd(),config('serversDirectory')) # type: ignore
 
 #Functions
 def checkOnline():
@@ -18,7 +18,7 @@ def start(serverName):
     for value in serverName:
         starter = core.findStarter(value)
         if starter != False:
-            os.sys("screen -d -m -S {value} {starter}")
+            os.system("screen -d -m -S {value} {starter}")
 
 
     return
