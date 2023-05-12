@@ -1,0 +1,2 @@
+#Ignore any server files in server directory
+/servers/**
