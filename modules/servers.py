@@ -7,12 +7,17 @@ serversDir = os.path.join(os.getcwd(),config('serversDirectory')) # type: ignore
 
 #Functions
 def checkOnline():
-    serverList = ""
+    online = []
     screenListOutput = os.popen("screen -list").read()
-    for value in screenListOutput:
-        if(value in listem()):
-            serverList += serversDir[value]
-    return serverList
+    for screenText in screenListOutput:
+        for serInd, serVal in enumerate(listem()):
+            if serVal in screenText:
+                online.append([serInd,serVal])
+        
+    #for value in screenListOutput:
+    #    if(value in listem()):
+    #        online += serversDir[value]
+    return online
     
 def start(serverName):
     for value in serverName:
