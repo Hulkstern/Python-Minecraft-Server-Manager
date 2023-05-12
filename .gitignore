@@ -1,5 +1,7 @@
 #Ignore any server files in server directory
 /servers/**
+**/.vscode
+**/__pycache__/
 
 #Ignore Python Junk
 *.pyc
