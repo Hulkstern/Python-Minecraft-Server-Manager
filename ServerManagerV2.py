@@ -8,7 +8,7 @@ import modules.core as core
 from decouple import config
 
 cwd = os.getcwd()
-serversDir = os.path.join(cwd,'servers')
+serversDir = os.path.join(cwd, config('serversDirectory'))
 
 #Initial Setup
 setup.init()
@@ -18,6 +18,5 @@ folder = os.path.join(cwd,'servers')
 
 sub_folders = [name for name in os.listdir(serversDir) if os.path.isdir(os.path.join(serversDir, name))]
 
-print(sub_folders)
 
-print(core.findStarter(sub_folders[1]))
+print(core.findStarter(svrs.listem()[1]))

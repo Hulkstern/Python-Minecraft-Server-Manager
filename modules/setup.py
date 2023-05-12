@@ -1,7 +1,9 @@
 import os
 import modules.ui as ui
+from decouple import config
+
 cwd = os.getcwd()
-serversDir = os.path.join(cwd,'servers')
+serversDir = os.path.join(cwd, config('serversDirectory'))
 
 def init():
     if not os.path.exists(serversDir):
