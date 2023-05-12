@@ -1,8 +1,5 @@
 import modules.core as core
 import modules.servers as svrs
-from decouple import config
-
-lineArt = config('lineArt')
 
 #Functions
 def MainMenu():

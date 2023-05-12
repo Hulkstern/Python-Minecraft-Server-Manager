@@ -1,6 +1,5 @@
-import modules.core
 import os
-from decouple import config
+import modules.core as core
 
 #Functions
 def ScanServerFiles():
@@ -12,6 +11,6 @@ def FindServerPorts():
     return
 
 def SendServerCommand(ServerName, ServerCommand):
-    os.sys("screen -S {ServerName} -X {ServerCommand}")
+    os.system("screen -S {ServerName} -X {ServerCommand}")
     return
 

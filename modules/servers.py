@@ -1,10 +1,7 @@
 import os
 import modules.core as core
 import modules.server as svr
-from decouple import config
-
-cwd = os.getcwd()
-serversDir = os.path.join(cwd,config('serversDirectory')) # type: ignore
+from pathlib import Path
 
 #Functions
 def checkOnline():
@@ -22,11 +19,11 @@ def checkOnline():
     
 def start(serverNames):
     for serverName in serverNames:
-        starter = core.findStarter(serverName)
+        starter = findStarter(serverName)
         if starter != False:
-            os.chdir(os.path.join(serversDir,serverName))
+            os.chdir(os.path.join(core.serversDir,serverName))
             os.system("screen -d -m -S {serverName} {starter}")
-    os.chdir(cwd)
+    os.chdir(core.cwd)
 
     return
 
@@ -34,5 +31,11 @@ def stop(serverName):
     svr.SendServerCommand(serverName, "stop")
     return
 
+def findStarter(serverDir):
+    for starter in core.starters: #type: ignore
+        if (Path(os.path.join(core.serversDir,serverDir,str(starter)))).is_file(): #type: ignore
+            return starter
+    return False
+
 def listem():
-    return list([name for name in os.listdir(serversDir) if os.path.isdir(os.path.join(serversDir, name))])
+    return list([name for name in os.listdir(core.serversDir) if os.path.isdir(os.path.join(core.serversDir, name))])

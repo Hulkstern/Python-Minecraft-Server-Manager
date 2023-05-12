@@ -1,16 +1,14 @@
 import os
 import modules.ui as ui
-from decouple import config
-
-serversDir = os.path.join(os.getcwd(), config('serversDirectory')) # type: ignore
+import modules.core as core
 
 #Functions
 def init():
-    if not os.path.exists(serversDir):
+    if not os.path.exists(core.serversDir):
         print("servers directory does not exist, creating...")
-        os.mkdir(serversDir)
-        print(str(serversDir)+" created, creating sampleServer directory...")
-        os.mkdir(os.path.join(serversDir,'sampleServer'))
+        os.mkdir(core.serversDir)
+        print(str(core.serversDir)+" created, creating sampleServer directory...")
+        os.mkdir(os.path.join(core.serversDir,'sampleServer'))
         basicStartScript('sampleServer')
         print("sampleServer directory and start script created, Visit: "+ui.link("https://www.minecraft.net/en-us/download/server")+" to download the most recent server.jar to the sampleServer directory to get started")
 
@@ -20,7 +18,7 @@ def make_executable(path):
     os.chmod(path, mode)
 
 def basicStartScript(serverStartDir):
-    scriptLoc = os.path.join(serversDir,serverStartDir,"startServer.sh")
+    scriptLoc = os.path.join(core.serversDir,serverStartDir,"startServer.sh")
     script = open(scriptLoc, 'w')
     script.write("#!/bin/bash java -Xmx1G -Xms1G -jar server.jar")
     script.close()
