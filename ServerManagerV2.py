@@ -19,4 +19,4 @@ folder = os.path.join(cwd,'servers')
 sub_folders = [name for name in os.listdir(serversDir) if os.path.isdir(os.path.join(serversDir, name))]
 
 
-print(core.findStarter(svrs.listem()[1]))
+print(core.findStarter(svrs.listem()[0]))
