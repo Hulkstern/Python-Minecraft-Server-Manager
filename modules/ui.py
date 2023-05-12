@@ -1,6 +1,8 @@
-import os, sys
-import string
 import modules.core
+from decouple import config
+
+lineArt = config('lineArt')
+print(lineArt)
 
 def MainMenu():
 
