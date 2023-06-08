@@ -28,7 +28,7 @@ def start(serverNames):
                 print(f"Error moving to \"{os.path.join(core.serversDir,serverName)}\" directory")
             # Start server in screen session
             try:
-                os.system("screen -d -m -S {serverName} {starter}")
+                os.system(f"screen -d -m -S {serverName} ./{starter}")
                 print(f"Started \"{serverName}\" server")
             except:
                 print(f"Error Starting \"{serverName}\" server")

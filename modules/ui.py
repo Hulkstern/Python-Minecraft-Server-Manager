@@ -15,7 +15,7 @@ def StartServerMenu():
     for index, curServer in enumerate(svrs.listem()):
         output=output+str("%3d"%(index+1))+f" - {curServer[0:-4]}\n"
     print(f"Available Servers:\n{output}")
-    return
+    return input("Choose which servers to start, each selection seperated with a space:\n")
 
 def StopServerMenu():
 
@@ -24,11 +24,25 @@ def StopServerMenu():
 def ValidateUserInput(userInput, inType):
     match inType:
         case "mainMenu":
-            print("Validating input")
+            print(f"Validating {inType} input")
             try:
                 return int(userInput)
             except:
                 return False
+        case "serverStart":
+            outputList=[]
+            try:
+                inputList=str(userInput).split(" ")
+            except:
+                print("Not a valid input, please seperate each value with a space")
+                return False
+            for eachVal in inputList:
+                print(f"Validating {inType} input")
+                try:
+                    outputList.append(int(eachVal))
+                except:
+                    return False
+            return outputList
     #return userInput
 
 def error(issueText, errorType):

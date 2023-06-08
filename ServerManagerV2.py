@@ -21,7 +21,15 @@ while loopMenuState:
     print("")
     match ui.ValidateUserInput(userInput, "mainMenu"):
         case 1:
-            ui.StartServerMenu()
+            while True:
+                svrStartInput = ui.ValidateUserInput(ui.StartServerMenu(),"serverStart")
+                if svrStartInput==False:
+                    print("Please Try Again")
+                else:
+                    for index, eachVal in enumerate(svrStartInput): #type: ignore
+                        svrStartInput[index]=svrs.listem()[eachVal-1] #type: ignore
+                    svrs.start(svrStartInput)
+                    break
         case 2:
             ui.StopServerMenu()
         case 3:
