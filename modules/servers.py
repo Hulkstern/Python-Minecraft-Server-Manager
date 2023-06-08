@@ -21,14 +21,28 @@ def start(serverNames):
     for serverName in serverNames:
         starter = findStarter(serverName)
         if starter != False:
-            os.chdir(os.path.join(core.serversDir,serverName))
-            os.system("screen -d -m -S {serverName} {starter}")
+            # Change working directory to server's directory
+            try:
+                os.chdir(os.path.join(core.serversDir,serverName))
+            except:
+                print(f"Error moving to \"{os.path.join(core.serversDir,serverName)}\" directory")
+            # Start server in screen session
+            try:
+                os.system("screen -d -m -S {serverName} {starter}")
+                print(f"Started \"{serverName}\" server")
+            except:
+                print(f"Error Starting \"{serverName}\" server")
     os.chdir(core.cwd)
 
     return
 
-def stop(serverName):
-    svr.SendServerCommand(serverName, "stop")
+def stop(serverNames):
+    for serverName in serverNames:
+        try:
+            svr.SendServerCommand(serverName, "stop")
+            print(f"Stopped \"{serverName}\" server")
+        except:
+            print(f"Error Stopping \"{serverName}\" server")
     return
 
 def findStarter(serverDir):
