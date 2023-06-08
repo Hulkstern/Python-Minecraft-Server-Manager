@@ -6,11 +6,11 @@ def ScanServerFiles():
 
     return
 
-def FindServerPorts():
-
+def FindServerPorts(ServerName):
+    #Going to scan the server.properties file till a line containing "server-port" is found, that value is what we shall return
     return
 
 def SendServerCommand(ServerName, ServerCommand):
-    os.system("screen -S {ServerName} -X {ServerCommand}")
+    os.system(f"screen -S {ServerName} -X {ServerCommand}")
     return
 

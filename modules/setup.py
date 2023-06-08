@@ -20,6 +20,6 @@ def make_executable(path):
 def basicStartScript(serverStartDir):
     scriptLoc = os.path.join(core.serversDir,serverStartDir,"startServer.sh")
     script = open(scriptLoc, 'w')
-    script.write("#!/bin/bash java -Xmx1G -Xms1G -jar server.jar")
+    script.write("#!/bin/bash\njava -Xmx1G -Xms1G -jar server.jar")
     script.close()
     make_executable(scriptLoc)
