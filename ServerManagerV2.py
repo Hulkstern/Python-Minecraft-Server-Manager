@@ -6,7 +6,7 @@ import modules.ui as ui
 import modules.setup as setup
 import modules.core as core
 
-loopMenuState = False
+loopMenuState = True
 
 #Initial Setup
 setup.init()

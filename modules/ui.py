@@ -3,8 +3,12 @@ import modules.servers as svrs
 
 #Functions
 def MainMenu():
-
-    return
+    print("\nWhadya want?")
+    print("1. Start Servers")
+    print("2. Stop Servers")
+    print("3. Send Command to Server")
+    print("4. Exit Program")
+    return input("Choose a number:\n")
 
 def StartServerMenu():
 
@@ -18,12 +22,16 @@ def ValidateUserInput(userInput, inType):
     match inType:
         case "mainMenu":
             print("Validating input")
-    return
+            try:
+                return int(userInput)
+            except:
+                return False
+    #return userInput
 
 def error(issueText, errorType):
     match errorType:
         case 0: #Invalid Input
-            print("The input {issueText} is not valid, please enter the number of your selection and press enter.")
+            print(f"The input \"{issueText}\" is not valid, please enter the number of your selection and press enter.")
         case 1: #out of bounds input
             print()
 
