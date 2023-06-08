@@ -6,3 +6,6 @@
 #Ignore Python Junk
 *.pyc
 *.venv
+
+#Ignore Config Files in modules folder
+modules/config
