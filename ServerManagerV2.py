@@ -18,6 +18,7 @@ sub_folders = [name for name in os.listdir(core.serversDir) if os.path.isdir(os.
 
 while loopMenuState:
     userInput = ui.MainMenu()
+    print("")
     match ui.ValidateUserInput(userInput, "mainMenu"):
         case 1:
             ui.StartServerMenu()
@@ -30,4 +31,4 @@ while loopMenuState:
         case False:
             ui.error(userInput,0)
 
-print(svrs.findStarter(svrs.listem()[0]))
+#print(svrs.findStarter(svrs.listem()[0]))

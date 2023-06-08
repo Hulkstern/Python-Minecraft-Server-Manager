@@ -11,7 +11,10 @@ def MainMenu():
     return input("Choose a number:\n")
 
 def StartServerMenu():
-
+    output=""
+    for index, curServer in enumerate(svrs.listem()):
+        output=output+str("%3d"%(index+1))+f" - {curServer[0:-4]}\n"
+    print(f"Available Servers:\n{output}")
     return
 
 def StopServerMenu():
